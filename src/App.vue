@@ -15,6 +15,17 @@ html, body{
   font-family: 'Microsoft YaHei';
   font-size: 14px;
 }
+html,body,h1,h2,h3,h4,h5,h6,p,div,img,ul,ol,li,header,footer,a,span,em,i{
+  margin: 0;
+  padding: 0;
+}
+ul,ol,li{
+  list-style-type: none;
+}
+a{
+  text-decoration: none;
+  color: #333;
+}
 .wrap{
   width: 100%;
 }
