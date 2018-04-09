@@ -1,7 +1,7 @@
 <template>
   <div class="wrap main-wrap">
     <div class="content main">
-      <div class="list" v-for="item in contents" :key="item._id.toString()">
+      <div class="list" v-for="item in contents" :key="item._id.toString()" v-if="contents.length>0">
         <h3 class="title">{{ item.title }}</h3>
         <p class="content-info clearfloat">
           <span v-if="item.tag" class="tag-info"><el-tag size="medium">{{ item.tag.name }}</el-tag></span>
@@ -16,6 +16,9 @@
             <el-button size="medium">阅读全文</el-button>
           </router-link>
         </p>
+      </div>
+      <div class="list" v-if="contents.length==0">
+        <i class="el-icon-warning" style="margin-right:6px;color: red;"></i>没有找到文章
       </div>
     </div>
   </div>
