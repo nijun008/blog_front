@@ -28,6 +28,7 @@ a{
 }
 .wrap{
   width: 100%;
+  min-width: 1200px;
 }
 .content{
   width: 1200px;

@@ -1,16 +1,16 @@
 <template>
   <div class="wrap header-wrap">
     <div class="banner"></div>
-    <div class="content header">
-      <ul class="clearfloat tags">
-        <li class="fl" @click="$store.commit('changeTag', '')">
+
+      <ul class="clearfloat nav">
+        <li @click="$store.commit('changeTag', '')">
           <router-link :to="'/'">主页</router-link>
         </li>
-        <li v-for="tag in tags" :key="tag._id.toString()" class="fl" @click="$store.commit('changeTag', tag._id.toString())">
+        <li v-for="tag in tags" :key="tag._id.toString()" @click="$store.commit('changeTag', tag._id.toString())">
           <router-link :to="{ path: '/', query: { tag: tag._id.toString() }}">{{ tag.name }}</router-link>
         </li>
       </ul>
-    </div>
+
   </div>
 </template>
 
@@ -39,8 +39,31 @@ export default {
 <style scoped>
   .header-wrap{
     background-color: #cecece;
+    position: relative;
   }
   .banner{
     height: 200px;
+  }
+  a{
+    color: #000;
+  }
+  .router-link-exact-active{
+    color: #fff;
+  }
+  .nav{
+    line-height: 34px;
+    font-size: 16px;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+  }
+  .nav li{
+    margin: 0 5px;
+    display: inline-block;
+  }
+  .nav li a{
+    display: block;
+    padding: 0 8px;
   }
 </style>
