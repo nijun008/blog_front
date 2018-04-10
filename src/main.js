@@ -12,9 +12,13 @@ import axios from 'axios'
 
 import store from './store/store'
 
+import VueCookie from 'vue-cookie'
+
 Vue.config.productionTip = false
 
 Vue.use(ElementUI)
+
+Vue.use(VueCookie)
 
 Vue.prototype.axios = axios
 
