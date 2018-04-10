@@ -20,6 +20,14 @@
       <div class="list" v-if="contents.length==0">
         <i class="el-icon-warning" style="margin-right:6px;color: red;"></i>没有找到文章
       </div>
+      <el-pagination
+        v-if="pages>1"
+        background
+        layout="prev, pager, next"
+        :total="count"
+        :page-size="5"
+        @current-change="changePage">
+      </el-pagination>
     </div>
   </div>
 </template>
@@ -29,16 +37,15 @@ export default {
   data () {
     return {
       contents: [],
-      req: {
-        tag: '',
-        page: 1
-      },
-      res: {}
+      tag: '',
+      pages: 1,
+      page: 1,
+      count: 5,
     }
   },
   created () {
     if (this.$route.query.tag) {
-      this.req.tag = this.$route.query.tag
+      this.tag = this.$route.query.tag
     }
     this.getContents()
   },
@@ -49,15 +56,23 @@ export default {
   },
   watch: {
     '$store.state.tag': function () {
-      this.req.tag = this.$store.state.tag
+      this.tag = this.$store.state.tag
+      this.page = 1
       this.getContents()
     }
   },
   methods: {
     getContents () {
-      this.axios('/api/contents/?tag=' + this.req.tag + '&page=' + this.req.page).then(res => {
+      this.axios('/api/contents/?tag=' + this.tag + '&page=' + this.page).then(res => {
         this.contents = res.data.contents
+        this.pages = res.data.pages
+        this.count = res.data.count
+        console.log(res.data)
       })
+    },
+    changePage (page) {
+      this.page = page
+      this.getContents()
     }
   }
 }
