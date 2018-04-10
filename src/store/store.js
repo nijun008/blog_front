@@ -4,12 +4,22 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const state = {
-  tag: ''
+  tag: '',
+  isLogin: false,
+  user: {}
 }
 
 const mutations = {
   changeTag (state, tag) {
     state.tag = tag
+  },
+  logIn (state, user) {
+    state.isLogin = true
+    state.user = user
+  },
+  logOut (state, user) {
+    state.isLogin = false
+    state.user = {}
   }
 }
 
