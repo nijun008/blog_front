@@ -1,34 +1,32 @@
 <template>
-  <div class="wrap main-wrap">
-    <div class="content main">
-      <div class="list" v-for="item in contents" :key="item._id.toString()" v-if="contents.length>0">
-        <h3 class="title">{{ item.title }}</h3>
-        <p class="content-info clearfloat">
-          <span v-if="item.tag" class="tag-info"><el-tag size="medium">{{ item.tag.name }}</el-tag></span>
-          <span v-if="item.user" class="user-info"><i class="el-icon-edit"></i>{{ item.user.username }}</span>
-          <span v-else class="user-info"><i class="el-icon-edit"></i>佚名</span>
-          <span v-if="item.createTime" class="time-info"><i class="el-icon-time"></i>{{ item.createTime }}</span>
-          <span v-if="item.views >= 0" class="view-info"><i class="el-icon-view"></i>{{ item.views }}</span>
-        </p>
-        <p class="description">{{ item.description }}</p>
-        <p class="read">
-          <router-link :to="{ path: '/content', query: { id: item._id.toString() }}">
-            <el-button size="medium">阅读全文</el-button>
-          </router-link>
-        </p>
-      </div>
-      <div class="list" v-if="contents.length==0">
-        <i class="el-icon-warning" style="margin-right:6px;color: red;"></i>没有找到文章
-      </div>
-      <el-pagination
-        v-if="pages>1"
-        background
-        layout="prev, pager, next"
-        :total="count"
-        :page-size="5"
-        @current-change="changePage">
-      </el-pagination>
+  <div class="main">
+    <div class="list" v-for="item in contents" :key="item._id.toString()" v-if="contents.length>0">
+      <h3 class="title">{{ item.title }}</h3>
+      <p class="content-info clearfloat">
+        <span v-if="item.tag" class="tag-info"><el-tag size="medium">{{ item.tag.name }}</el-tag></span>
+        <span v-if="item.user" class="user-info"><i class="el-icon-edit"></i>{{ item.user.username }}</span>
+        <span v-else class="user-info"><i class="el-icon-edit"></i>佚名</span>
+        <span v-if="item.createTime" class="time-info"><i class="el-icon-time"></i>{{ item.createTime }}</span>
+        <span v-if="item.views >= 0" class="view-info"><i class="el-icon-view"></i>{{ item.views }}</span>
+      </p>
+      <p class="description">{{ item.description }}</p>
+      <p class="read">
+        <router-link :to="{ path: '/content', query: { id: item._id.toString() }}">
+          <el-button size="medium">阅读全文</el-button>
+        </router-link>
+      </p>
     </div>
+    <div class="list" v-if="contents.length==0">
+      <i class="el-icon-warning" style="margin-right:6px;color: red;"></i>没有找到文章
+    </div>
+    <el-pagination
+      v-if="pages>1"
+      background
+      layout="prev, pager, next"
+      :total="count"
+      :page-size="5"
+      @current-change="changePage">
+    </el-pagination>
   </div>
 </template>
 
@@ -40,7 +38,7 @@ export default {
       tag: '',
       pages: 1,
       page: 1,
-      count: 5,
+      count: 5
     }
   },
   created () {

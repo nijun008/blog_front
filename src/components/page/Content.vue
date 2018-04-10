@@ -1,16 +1,14 @@
 <template>
-  <div class="wrap content-wrap">
-    <div class="content">
-      <h2 class="title">{{ content.title }}</h2>
-      <p class="content-info clearfloat">
-        <span v-if="content.tag" class="tag-info"><el-tag size="medium">{{ content.tag.name }}</el-tag></span>
-        <span v-if="content.user" class="user-info"><i class="el-icon-edit"></i>{{ content.user.username }}</span>
-        <span v-else class="user-info"><i class="el-icon-edit"></i>佚名</span>
-        <span v-if="content.createTime" class="time-info"><i class="el-icon-time"></i>{{ content.createTime }}</span>
-        <span v-if="content.views >= 0" class="view-info"><i class="el-icon-view"></i>{{ content.views }}</span>
-      </p>
-      <p class="txt">{{ content.content }}</p>
-    </div>
+  <div class="content-box">
+    <h2 class="title">{{ content.title }}</h2>
+    <p class="content-info clearfloat">
+      <span v-if="content.tag" class="tag-info"><el-tag size="medium">{{ content.tag.name }}</el-tag></span>
+      <span v-if="content.user" class="user-info"><i class="el-icon-edit"></i>{{ content.user.username }}</span>
+      <span v-else class="user-info"><i class="el-icon-edit"></i>佚名</span>
+      <span v-if="content.createTime" class="time-info"><i class="el-icon-time"></i>{{ content.createTime }}</span>
+      <span v-if="content.views >= 0" class="view-info"><i class="el-icon-view"></i>{{ content.views }}</span>
+    </p>
+    <p class="txt">{{ content.content }}</p>
   </div>
 </template>
 
@@ -37,11 +35,7 @@ export default {
 </script>
 
 <style scoped>
-  .content-wrap{
-    background-color: #f6f6f6;
-    padding: 20px 0;
-  }
-  .content{
+  .content-box{
     padding: 20px;
     background-color: #fff;
     margin-bottom: 16px;
