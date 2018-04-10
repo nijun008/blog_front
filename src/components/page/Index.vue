@@ -37,6 +37,9 @@ export default {
     }
   },
   created () {
+    if (this.$route.query.tag) {
+      this.req.tag = this.$route.query.tag
+    }
     this.getContents()
   },
   computed: {
