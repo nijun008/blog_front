@@ -171,6 +171,8 @@ export default {
     logOut () {
       this.axios('/api/user/logout').then(res => {
         if (res.data.code === 200) {
+          this.$cookie.delete('username')
+          this.$cookie.delete('password')
           this.isLogin = false
           this.user = {}
           this.$message({
