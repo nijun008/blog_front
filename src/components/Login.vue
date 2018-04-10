@@ -103,6 +103,13 @@ export default {
       }
     }
   },
+  mounted () {
+    if (this.$cookie.get('username')) {
+      this.loginRule.username = this.$cookie.get('username')
+      this.loginRule.password = this.$cookie.get('password')
+      this.loginSubmit('loginRule')
+    }
+  },
   methods: {
     loginSubmit (formName) {
       this.$refs[formName].validate((valid) => {
@@ -111,6 +118,8 @@ export default {
             if (res.data.code === 200) {
               this.user = res.data.userInfo
               this.isLogin = true
+              this.$cookie.set('username', this.loginRule.username, { expires: '3D' })
+              this.$cookie.set('password', this.loginRule.password, { expires: '3D' })
               this.$message({
                 message: '登录成功,欢迎您',
                 type: 'success'
