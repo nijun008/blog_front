@@ -132,7 +132,6 @@ export default {
             }
           })
         } else {
-          console.log('error submit!!')
           return false
         }
       })
@@ -140,9 +139,7 @@ export default {
     registerSubmit (formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          console.log(this.register)
           this.axios.post('/api/user/register', this.register).then(res => {
-            console.log(res.data)
             if (res.data.code === 200) {
               this.$message({
                 message: '注册成功,请登录',
@@ -157,7 +154,6 @@ export default {
             }
           })
         } else {
-          console.log('error submit!!')
           return false
         }
       })

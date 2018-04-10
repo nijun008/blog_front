@@ -65,7 +65,6 @@ export default {
         this.contents = res.data.contents
         this.pages = res.data.pages
         this.count = res.data.count
-        console.log(res.data)
       })
     },
     changePage (page) {
@@ -88,14 +87,6 @@ export default {
     border-radius: 5px;
     box-shadow: 0px 2px 2px #ddd;
   }
-/*  .list:after{
-    content: '';
-    display: block;
-    width: 100%;
-    height: 1px;
-    background-color: #ddd;
-    margin-top: 20px;
-  }*/
   .title{
     line-height: 36px;
     text-align: center;

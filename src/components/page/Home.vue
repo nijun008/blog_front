@@ -26,7 +26,7 @@ export default {
   },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: '欢迎访问我的博客'
     }
   }
 }
