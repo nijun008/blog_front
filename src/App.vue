@@ -50,4 +50,61 @@ a{
   zoom: 1;
   clear: both;
 }
+
+/*富文本文章样式*/
+.txt a{
+  color: #337ab7;
+}
+.txt a:hover{
+  text-decoration: underline;
+  color: #23527c;
+}
+.txt table{
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+}
+.txt table th{
+  border-bottom: 2px solid #ccc;
+  text-align: center;
+}
+.txt table td{
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  padding: 3px 5px;
+}
+.txt pre{
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  color: #333;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.txt p, .txt h1, .txt h2, .txt h3, .txt h4, .txt h5, .txt table, .txt pre{
+  margin: 10px 0;
+  line-height: 1.5;
+}
+.txt blockquote{
+  display: block;
+  border-left: 8px solid #d0e5f2;
+  padding: 5px 10px;
+  margin: 10px 0;
+  line-height: 1.4;
+  font-size: 100%;
+  background-color: #f1f1f1;
+}
+.txt ul,.txt ol{
+  margin: 10px 0 10px 20px;
+}
+.txt ul li{
+  list-style-type: disc;
+}
+.txt ol li{
+  list-style-type: decimal;
+}
 </style>

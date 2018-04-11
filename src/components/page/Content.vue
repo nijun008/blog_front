@@ -8,7 +8,7 @@
       <span v-if="content.createTime" class="time-info"><i class="el-icon-time"></i>{{ content.createTime }}</span>
       <span v-if="content.views >= 0" class="view-info"><i class="el-icon-view"></i>{{ content.views }}</span>
     </p>
-    <p class="txt">{{ content.content }}</p>
+    <div class="txt" v-html="content.content"></div>
   </div>
 </template>
 
