@@ -66,6 +66,8 @@ a{
 .txt table th{
   border-bottom: 2px solid #ccc;
   text-align: center;
+  border-right: 1px solid #ccc;
+  padding: 3px 5px;
 }
 .txt table td{
   border-bottom: 1px solid #ccc;
