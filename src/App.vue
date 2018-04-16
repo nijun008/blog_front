@@ -14,6 +14,10 @@ export default {
 html, body{
   font-family: 'Microsoft YaHei';
   font-size: 14px;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  background-color: #f6f6f6;
 }
 html,body,h1,h2,h3,h4,h5,h6,p,div,img,ul,ol,li,header,footer,a,span,em,i{
   margin: 0;
@@ -28,10 +32,10 @@ a{
 }
 .wrap{
   width: 100%;
-  min-width: 1200px;
+ /* min-width: 1200px;*/
 }
 .content{
-  width: 1200px;
+  max-width: 1200px;
   position: relative;
   margin-left: auto;
   margin-right: auto;

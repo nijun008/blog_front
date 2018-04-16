@@ -4,10 +4,10 @@
     <div class="wrap main-wrap">
       <div class="content">
         <el-row>
-          <el-col :span="17">
+          <el-col :lg="17" :md="24">
             <router-view></router-view>
           </el-col>
-          <el-col :span="6" :offset="1">
+          <el-col :lg="6" :offset="1" class="hidden-md-and-down">
             <v-login></v-login>
           </el-col>
         </el-row>

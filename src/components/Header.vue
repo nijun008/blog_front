@@ -2,12 +2,18 @@
   <div class="wrap header-wrap">
     <div class="banner"></div>
 
-      <ul class="clearfloat nav">
+      <ul class="clearfloat nav hidden-md-and-down">
         <li @click="$store.commit('changeTag', '')">
           <router-link :to="'/'">主页</router-link>
         </li>
         <li v-for="tag in tags" :key="tag._id.toString()" @click="$store.commit('changeTag', tag._id.toString())">
           <router-link :to="{ path: '/', query: { tag: tag._id.toString() }}">{{ tag.name }}</router-link>
+        </li>
+      </ul>
+
+      <ul class="hidden-lg-and-up  nav">
+        <li @click="$store.commit('changeTag', '')">
+          <router-link :to="'/'">主页</router-link>
         </li>
       </ul>
 
