@@ -23,7 +23,7 @@
         </el-form>
       </div>
       <div class="register" v-else>
-        <el-form :model="register" :rules="registerRules" ref="register" label-width="80px">
+        <el-form :model="register" :rules="registerRules" ref="register" label-width="80px"  label-position="left">
           <el-form-item label="用户名" prop="username">
             <el-input v-model="register.username"></el-input>
           </el-form-item>

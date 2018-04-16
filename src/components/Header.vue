@@ -40,9 +40,12 @@ export default {
   .header-wrap{
     background-color: #cecece;
     position: relative;
+    background-image: url(../assets/imgs/banner03.jpg);
+    background-size: cover;
+    background-position: center;
   }
   .banner{
-    height: 200px;
+    height: 300px;
   }
   a{
     color: #000;
