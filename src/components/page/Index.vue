@@ -6,7 +6,7 @@
         <span v-if="item.tag" class="tag-info"><el-tag size="medium">{{ item.tag.name }}</el-tag></span>
         <span v-if="item.user" class="user-info"><i class="el-icon-edit"></i>{{ item.user.username }}</span>
         <span v-else class="user-info"><i class="el-icon-edit"></i>佚名</span>
-        <span v-if="item.createTime" class="time-info"><i class="el-icon-time"></i>{{ item.createTime }}</span>
+        <span v-if="item.createTime" class="time-info"><i class="el-icon-time"></i>{{ item.createTime | formatDate }}</span>
         <span v-if="item.views >= 0" class="view-info"><i class="el-icon-view"></i>{{ item.views }}</span>
       </p>
       <p class="description">{{ item.description }}</p>
@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import { formatDate } from '../../assets/js/date.js'
 export default {
   data () {
     return {
@@ -70,6 +71,12 @@ export default {
     changePage (page) {
       this.page = page
       this.getContents()
+    }
+  },
+  filters: {
+    formatDate (time) {
+      var date = new Date(time)
+      return formatDate(date, 'yyyy-MM-dd hh:mm')
     }
   }
 }

@@ -5,7 +5,7 @@
       <span v-if="content.tag" class="tag-info"><el-tag size="medium">{{ content.tag.name }}</el-tag></span>
       <span v-if="content.user" class="user-info"><i class="el-icon-edit"></i>{{ content.user.username }}</span>
       <span v-else class="user-info"><i class="el-icon-edit"></i>佚名</span>
-      <span v-if="content.createTime" class="time-info"><i class="el-icon-time"></i>{{ content.createTime }}</span>
+      <span v-if="content.createTime" class="time-info"><i class="el-icon-time"></i>{{ content.createTime | formatDate }}</span>
       <span v-if="content.views >= 0" class="view-info"><i class="el-icon-view"></i>{{ content.views }}</span>
     </p>
     <div class="txt" v-html="content.content"></div>
@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import { formatDate } from '../../assets/js/date.js'
 export default {
   data () {
     return {
@@ -29,6 +30,12 @@ export default {
       this.axios('/api/content?id=' + this.id).then(res => {
         this.content = res.data.content
       })
+    }
+  },
+  filters: {
+    formatDate (time) {
+      var date = new Date(time)
+      return formatDate(date, 'yyyy-MM-dd hh:mm')
     }
   }
 }
