@@ -3,7 +3,7 @@
     <div class="login-wrap" v-if="isLogin">
       <template v-if="user.isAdmin">
         <p class="username">管理员，<span> {{ user.username }}</span></p>
-        <p>进入<el-button type="text"><a href="/admin" target="_blank"></a>后台管理</el-button></p>
+        <p>进入<el-button type="text"><a href="/admin" target="_blank">后台管理</a></el-button></p>
         <p><el-button @click="logOut()" size="medium">退出</el-button></p>
       </template>
       <template v-else>
