@@ -1,8 +1,15 @@
 <template>
   <div>
     <div class="login-wrap" v-if="isLogin">
-      <p class="username"><span>{{ user.username }}</span>, 欢迎！</p>
-      <p><el-button @click="logOut()">退出</el-button></p>
+      <template v-if="user.isAdmin">
+        <p class="username">管理员，<span> {{ user.username }}</span></p>
+        <p>进入<el-button type="text"><a href="/admin" target="_blank"></a>后台管理</el-button></p>
+        <p><el-button @click="logOut()" size="medium">退出</el-button></p>
+      </template>
+      <template v-else>
+        <p class="username">Hi，<span> {{ user.username }}</span></p>
+        <p><el-button @click="logOut()" size="medium">退出</el-button></p>
+      </template>
     </div>
     <div class="login-wrap" v-else>
       <div class="login" v-if="login">
@@ -49,6 +56,12 @@
         </el-form>
       </div>
     </div>
+
+    <div class="links">
+      <ul>
+        <li v-for="(link, index) in links" :key="index"><a :href="link.url" target="_blank">{{ link.title }}</a></li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -68,6 +81,10 @@ export default {
       isLogin: false,
       user: {},
       login: true,
+      links: [
+        { title: '个人简历', url: 'http://www.nijun.top/' },
+        { title: 'github', url: 'https://github.com/nijun008' }
+      ],
       loginRule: {
         username: '',
         password: ''
@@ -117,6 +134,7 @@ export default {
           this.axios.post('/api/user/login', this.loginRule).then(res => {
             if (res.data.code === 200) {
               this.user = res.data.userInfo
+              console.log(this.user)
               this.isLogin = true
               this.$cookie.set('username', this.loginRule.username, { expires: '3D' })
               this.$cookie.set('password', this.loginRule.password, { expires: '3D' })
@@ -188,12 +206,20 @@ export default {
 </script>
 
 <style scoped>
-.login-wrap{
+.login-wrap, .links{
   background-color: #fff;
   padding: 40px 20px 20px 20px;
 }
 .username span{
   color: #0084ff;
   line-height: 40px;
+}
+.links{
+  margin-top: 20px;
+  padding-top: 20px;
+}
+.links a{
+  color: #0084ff;
+  line-height: 24px;
 }
 </style>
