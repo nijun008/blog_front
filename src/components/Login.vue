@@ -134,7 +134,6 @@ export default {
           this.axios.post('/api/user/login', this.loginRule).then(res => {
             if (res.data.code === 200) {
               this.user = res.data.userInfo
-              console.log(this.user)
               this.isLogin = true
               this.$cookie.set('username', this.loginRule.username, { expires: '3D' })
               this.$cookie.set('password', this.loginRule.password, { expires: '3D' })
@@ -142,6 +141,7 @@ export default {
                 message: '登录成功,欢迎您',
                 type: 'success'
               })
+              this.$store.commit('logIn', res.data.userInfo)
             } else {
               this.$message({
                 message: res.data.message,
@@ -193,6 +193,7 @@ export default {
             message: '退出成功',
             type: 'success'
           })
+          this.$store.commit('logOut')
         } else {
           this.$message({
             message: res.data.message,
