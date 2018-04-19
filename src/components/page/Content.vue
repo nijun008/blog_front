@@ -69,7 +69,11 @@ export default {
     getContent () {
       this.axios('/api/content?id=' + this.id).then(res => {
         this.content = res.data.content
-        this.comments = res.data.comments
+        if (res.data.comments instanceof Array) {
+          this.comments = res.data.comments
+        } else {
+          this.comments = []
+        }
       })
     },
     submitComment (formName) {
@@ -121,9 +125,10 @@ export default {
     border-radius: 5px;
     box-shadow: 0px 2px 2px #ddd;
   }
-  .title{
-    line-height: 36px;
+  .content-box .title{
+    line-height: 60px;
     text-align: center;
+    margin-bottom: 20px;
   }
   .content-info{
     line-height: 36px;
