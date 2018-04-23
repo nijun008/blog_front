@@ -82,7 +82,7 @@ export default {
       user: {},
       login: true,
       links: [
-        { title: '个人简历', url: 'http://www.nijun.top/' },
+        { title: '个人简历', url: '/resume' },
         { title: 'github', url: 'https://github.com/nijun008' }
       ],
       loginRule: {
