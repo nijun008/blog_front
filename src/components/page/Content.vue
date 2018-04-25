@@ -14,7 +14,7 @@
     </div>
 
     <div class="comments-box">
-      <el-form  label-width="70px" :model="commentForm" :rules="rules" ref="commentForm" v-if="loginState">
+      <el-form  label-width="56px" :model="commentForm" :rules="rules" ref="commentForm" v-if="loginState">
         <el-form-item label="评论" prop="txt">
           <el-input type="textarea" v-model="commentForm.txt"></el-input>
         </el-form-item>
