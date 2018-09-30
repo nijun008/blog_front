@@ -13,6 +13,9 @@
         </el-row>
       </div>
     </div>
+    <footer>
+      <a href="http://www.miitbeian.gov.cn">蜀ICP备18029939号</a>
+    </footer>
   </div>
 </template>
 
@@ -33,8 +36,13 @@ export default {
 </script>
 
 <style scoped>
-  .main-wrap{
-    background-color: #f6f6f6;
-    padding: 20px 0;
-  }
+.main-wrap {
+  background-color: #f6f6f6;
+  padding: 20px 0;
+}
+footer {
+  color: #8d8d8d;
+  font-size: 12px;
+  text-align: center;
+}
 </style>
